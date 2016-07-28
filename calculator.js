@@ -38,14 +38,29 @@ $(document).ready(function(){
       calculatorStack.push(temporaryWorkingNumber)
       calculatorStack.push(performOperation(calculatorStack,operator))
       console.log(calculatorStack)
+      userIsEnteringNumber = false
+    } else if (input === "ac"){
+      calculatorStack = []
       temporaryWorkingNumber = 0
+      userIsEnteringNumber = true
     } else {
       if (!isNaN(parseInt(input))) {
+        if (userIsEnteringNumber) {
         temporaryWorkingNumber = (temporaryWorkingNumber * 10) + parseInt(input)
       } else {
-        calculatorStack.push(temporaryWorkingNumber)
-        operator = input
-        temporaryWorkingNumber = 0
+        userIsEnteringNumber = true
+        temporaryWorkingNumber = parseInt(input)
+      }
+      } else {
+        if (userIsEnteringNumber) {
+          calculatorStack.push(temporaryWorkingNumber)
+          operator = input
+          temporaryWorkingNumber = 0
+        } else {
+          userIsEnteringNumber = true
+          operator = input
+          temporaryWorkingNumber = 0
+        }
       }
     }
   });
