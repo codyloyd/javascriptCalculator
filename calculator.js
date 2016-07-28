@@ -38,7 +38,6 @@ $(document).ready(function(){
     if (input === "=") {
       calculatorStack.push(temporaryWorkingNumber)
       calculatorStack.push(performOperation(calculatorStack,operator))
-      console.log(calculatorStack)
       $(".display").html(calculatorStack[calculatorStack.length-1])
       userIsEnteringNumber = false
     } else if (input === "ac"){
@@ -49,7 +48,7 @@ $(document).ready(function(){
     } else {
       if (!isNaN(parseInt(input))) {
         if (userIsEnteringNumber) {
-        temporaryWorkingNumber = (temporaryWorkingNumber * 10) + parseInt(input)
+          temporaryWorkingNumber = (temporaryWorkingNumber * 10) + parseInt(input)
         } else {
           userIsEnteringNumber = true
           temporaryWorkingNumber = parseInt(input)
@@ -60,6 +59,7 @@ $(document).ready(function(){
           calculatorStack.push(temporaryWorkingNumber)
           operator = input
           temporaryWorkingNumber = 0
+          userIsEnteringNumber = false
         } else {
           userIsEnteringNumber = true
           operator = input
