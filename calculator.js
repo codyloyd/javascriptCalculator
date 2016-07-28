@@ -39,6 +39,7 @@ $(document).ready(function(){
       calculatorStack.push(temporaryWorkingNumber)
       calculatorStack.push(performOperation(calculatorStack,operator))
       console.log(calculatorStack)
+      $(".display").html(calculatorStack[calculatorStack.length-1])
       userIsEnteringNumber = false
     } else if (input === "ac"){
       calculatorStack = []
@@ -49,11 +50,12 @@ $(document).ready(function(){
       if (!isNaN(parseInt(input))) {
         if (userIsEnteringNumber) {
         temporaryWorkingNumber = (temporaryWorkingNumber * 10) + parseInt(input)
+        console.log(temporaryWorkingNumber)
+        $(".display").html(temporaryWorkingNumber)
         } else {
           userIsEnteringNumber = true
           temporaryWorkingNumber = parseInt(input)
         }
-        $(".display").html(temporaryWorkingNumber)
       } else {
         if (userIsEnteringNumber) {
           calculatorStack.push(temporaryWorkingNumber)
@@ -66,6 +68,5 @@ $(document).ready(function(){
         }
       }
     }
-    $(".display").html(calculatorStack[calculatorStack.length-1])
   });
 });
