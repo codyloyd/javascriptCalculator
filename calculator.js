@@ -32,6 +32,7 @@ var temporaryWorkingNumber = 0
 var operator = ""
 
 $(document).ready(function(){
+  $(".display").html(temporaryWorkingNumber)
   $(".button").click(function(){
     var input = this.innerHTML
     if (input === "=") {
@@ -43,14 +44,16 @@ $(document).ready(function(){
       calculatorStack = []
       temporaryWorkingNumber = 0
       userIsEnteringNumber = true
+      $(".display").html(temporaryWorkingNumber)
     } else {
       if (!isNaN(parseInt(input))) {
         if (userIsEnteringNumber) {
         temporaryWorkingNumber = (temporaryWorkingNumber * 10) + parseInt(input)
-      } else {
-        userIsEnteringNumber = true
-        temporaryWorkingNumber = parseInt(input)
-      }
+        } else {
+          userIsEnteringNumber = true
+          temporaryWorkingNumber = parseInt(input)
+        }
+        $(".display").html(temporaryWorkingNumber)
       } else {
         if (userIsEnteringNumber) {
           calculatorStack.push(temporaryWorkingNumber)
@@ -63,5 +66,6 @@ $(document).ready(function(){
         }
       }
     }
+    $(".display").html(calculatorStack[calculatorStack.length-1])
   });
 });
