@@ -50,12 +50,11 @@ $(document).ready(function(){
       if (!isNaN(parseInt(input))) {
         if (userIsEnteringNumber) {
         temporaryWorkingNumber = (temporaryWorkingNumber * 10) + parseInt(input)
-        console.log(temporaryWorkingNumber)
-        $(".display").html(temporaryWorkingNumber)
         } else {
           userIsEnteringNumber = true
           temporaryWorkingNumber = parseInt(input)
         }
+        $(".display").html(temporaryWorkingNumber)
       } else {
         if (userIsEnteringNumber) {
           calculatorStack.push(temporaryWorkingNumber)
