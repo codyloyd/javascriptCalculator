@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: 400px;
+}
+
+.display {
+  background-color: #c2f13a;
+  flex-grow: 1;
+  height:10px ;
+  width: 100%;
+}
+.button-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 5;
+  height: 23px;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  height: 10px;
+  width: 100%;
+}
+
+.button {
+  background-color: #1d2;
+  border: 1px black solid;
+  height: 100%;
+  width: 25%;
+}
